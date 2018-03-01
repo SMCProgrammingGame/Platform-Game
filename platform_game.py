@@ -12,14 +12,51 @@ import pygame
 import sys
 
 # Importanting classes from seperate files in order to be organized
+import lib.menu as menu
 
+# declaring constants
+WIDTH = 700
+HEIGHT = 500
 
 # Game needs Pyhthon 3 and higher in order to be ran without errors
 if sys.version_info[0] < 3:
     raise "Ran with Python 2. Needed Python 3."
 
-def main():
-    pass
 
-if __name__ =="__main__":
-    main()
+# initalizing pygame
+pygame.init()
+
+# defining the window
+size = (WIDTH, HEIGHT)
+screen = pygame.display.set_size(size)
+pygame.set_caption("Platfrom Game")
+
+# setting up clock for refresh rate
+clock = pygame.time.Clock()
+
+# varible used to control the game loop
+done = false
+
+#--- GAME LOOP ---
+while not done:
+    # setting up control for the game to quit when ordered to
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
+
+    # *************************
+    # ** GAME CODE GOES HERE **
+    # *************************
+
+    
+
+    # *************************
+    # **    END GAME CODE    **
+    # *************************
+
+    # setting frame rate at 60
+    clock.tick(60)
+
+# shutting down the game
+pygame.quit()
+
