@@ -29,7 +29,7 @@ pygame.init()
 # defining the window
 size = (WIDTH, HEIGHT)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("Platfrom Game")
+pygame.display.set_caption("Platform Game")
 
 # setting up clock for refresh rate
 clock = pygame.time.Clock()
