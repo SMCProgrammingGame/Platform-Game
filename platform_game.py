@@ -28,16 +28,16 @@ pygame.init()
 
 # defining the window
 size = (WIDTH, HEIGHT)
-screen = pygame.display.set_size(size)
-pygame.set_caption("Platfrom Game")
+screen = pygame.display.set_mode(size)
+pygame.display.set_caption("Platfrom Game")
 
 # setting up clock for refresh rate
 clock = pygame.time.Clock()
 
 # varible used to control the game loop
-done = false
+done = False
 
-#--- GAME LOOP ---
+# --- GAME LOOP ---
 while not done:
     # setting up control for the game to quit when ordered to
     for event in pygame.event.get():
