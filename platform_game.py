@@ -34,6 +34,14 @@ if sys.version_info[0] < 3:
 # initializing pygame
 pygame.init()
 
+background1 = pygame.image.load('background.png')
+background2 = pygame.image.load('background.png')
+
+background1_size = background1.get_size()
+background1_rect = background1.get_rect()
+
+background2_size = background2.get_size()
+background2_rect = background2.get_rect()
 # defining the window
 size = (WIDTH, HEIGHT)
 screen = pygame.display.set_mode(size)
