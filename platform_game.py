@@ -48,7 +48,48 @@ while not done:
     # ** GAME CODE GOES HERE **
     # *************************
 
-    
+# Used to create the enemies and hero.
+
+
+class Characters:
+    CharacterCount = 0
+
+    def __int__(self, name):
+        self.name = name
+        Characters.CharacterCount += 1
+
+    def load_image(self, image):
+        char = pygame.image.load(image).convert_alpha()
+        self.rect = char.get_rect()
+        return char
+
+    def bounded_movements(self):
+
+        global XMovement, YMovement, enemy_X_movement, enemy_Y_movement
+        rect = self.rect
+        if XMovement + rect.right > WIDTH:
+            XMovement = WIDTH - rect.right
+        elif XMovement < 0:
+            XMovement = 1
+        else:
+            XMovement += cx
+        if YMovement > HEIGHT - rect.bottom - FLOOR:
+            YMovement = HEIGHT - rect.bottom - FLOOR
+        elif YMovement < 0:
+            YMovement = 1
+        else:
+            YMovement += cy
+# Change values below to speed up or reduce the enemy movements.
+        if XMovement - enemy_X_movement > 0:
+            enemy_X_movement += 2
+        else:
+            enemy_X_movement += -2
+        if YMovement - enemy_Y_movement > 0:
+            enemy_Y_movement += 2
+        else:
+            enemy_Y_movement += -2
+
+# The controls are the WSAD letters instead of the arrow key...
 
 
 def controls():
