@@ -3,27 +3,35 @@
 # By: {group members names}
 # Date created: March 1st, 2018
 # This program is a simple game that was made by SMC programming club members.
-# Game is meant to be a simple platform game with eniemies, platforms, lives,
+# Game is meant to be a simple platform game with enemies, platforms, lives,
 # a timer, and an end
 # Built with the pygame library.
 
-#Iimporting libraries that are needed to run the game
+# Importing libraries that are needed to run the game
 import pygame
+import pygame.locals
 import sys
 
-# Importanting classes from seperate files in order to be organized
+# Importunating classes from separate files in order to be organized
 import lib.menu as menu
 
 # declaring constants
-WIDTH = 700
-HEIGHT = 500
+HEIGHT = 600
+WIDTH = 800
+XMovement = WIDTH/2
+YMovement = HEIGHT/2
+cx = cy = 0
+FLOOR = 200
+enemy_X_movement = enemy_Y_movement = 0
+white = (255, 255, 255)
+box = (255, 100, 0)
 
-# Game needs Pyhthon 3 and higher in order to be ran without errors
+# Game needs Python 3 and higher in order to be ran without errors
 if sys.version_info[0] < 3:
-    raise "Ran with Python 2. Needed Python 3."
+    raise Exception("Ran with Python 2. Needed Python 3.")
 
 
-# initalizing pygame
+# initializing pygame
 pygame.init()
 
 # defining the window
@@ -34,19 +42,13 @@ pygame.display.set_caption("Platform Game")
 # setting up clock for refresh rate
 clock = pygame.time.Clock()
 
-# varible used to control the game loop
+# variable used to control the game loop
 done = False
 
-# --- GAME LOOP ---
-while not done:
-    # setting up control for the game to quit when ordered to
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
 
-    # *************************
-    # ** GAME CODE GOES HERE **
-    # *************************
+# *************************
+# ** GAME CODE GOES HERE **
+# *************************
 
 # Used to create the enemies and hero.
 
