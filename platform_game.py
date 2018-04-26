@@ -109,7 +109,7 @@ def controls():
             True
     pressed = pygame.key.get_pressed()
     if pressed[pygame.K_q]:
-        pygame.quit()
+        pygame.quit()           # Can press Q to quit
     if pressed[pygame.K_a]:
         cx = -5
     elif pressed[pygame.K_d]:
