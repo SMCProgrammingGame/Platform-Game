@@ -50,6 +50,40 @@ while not done:
 
     
 
+
+def controls():
+    global cx, cy
+    for event in pygame.event.get():
+        if event.type == pygame.locals.KEYDOWN and event.key == pygame.K_SPACE:
+            True
+    pressed = pygame.key.get_pressed()
+    if pressed[pygame.K_q]:
+        pygame.quit()
+    if pressed[pygame.K_a]:
+        cx = -5
+    elif pressed[pygame.K_d]:
+        cx = 5
+    elif pressed[pygame.K_w]:
+        cy = -5
+    elif pressed[pygame.K_s]:
+        cy = 5
+
+# --- GAME LOOP ---
+
+
+def game_loop():
+    global cx, cy
+    while True:
+        controls()
+        hero.bounded_movements()
+        cy = cx = 0
+        screen.fill(white)
+        screen.blit(background1, (0, 0))
+        screen.blit(hero_png, (XMovement, YMovement))
+        screen.blit(enemy_png, (enemy_X_movement, enemy_Y_movement))
+        pygame.display.flip()
+        clock.tick(60)
+        pygame.display.update()
     # *************************
     # **    END GAME CODE    **
     # *************************
