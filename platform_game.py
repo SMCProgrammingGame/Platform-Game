@@ -129,8 +129,15 @@ def game_loop():
     # **    END GAME CODE    **
     # *************************
 
-    # setting frame rate at 60
-    clock.tick(60)
+
+hero = Characters()
+enemy = Characters()
+hero_png = hero.load_image('Hero.png')
+enemy_png = enemy.load_image('Enemy.png')
+game_loop()
+
+# setting frame rate at 60
+clock.tick(60)
 
 # shutting down the game
 pygame.quit()
