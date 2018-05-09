@@ -26,6 +26,10 @@ enemy_X_movement = enemy_Y_movement = 0
 white = (255, 255, 255)
 box = (255, 100, 0)
 
+# global variable that will determine when the game ends
+global done
+done = false
+
 # Game needs Python 3 and higher in order to be ran without errors
 if sys.version_info[0] < 3:
     raise Exception("Ran with Python 2. Needed Python 3.")
@@ -51,7 +55,6 @@ pygame.display.set_caption("Platform Game")
 clock = pygame.time.Clock()
 
 # variable used to control the game loop
-done = False
 
 
 # *************************
