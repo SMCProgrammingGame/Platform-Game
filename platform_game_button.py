@@ -22,7 +22,6 @@ HEIGHT = 500
 if sys.version_info[0] < 3:
     raise "Ran with Python 2. Needed Python 3."
 
-
 # initalizing pygame
 pygame.init()
 
@@ -37,6 +36,24 @@ clock = pygame.time.Clock()
 # varible used to control the game loop
 done = False
 
+
+# menu function
+# display_menu
+def display_menu():
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    if 300 + 100 > mouse[0] > 300 and 400 + 50 > mouse[1] > 400:
+        pygame.draw.rect(screen, (0, 255, 0), (300, 400, 100, 50))
+        if click[0] == 1: done = True
+    else:
+        pygame.draw.rect(screen, (0, 200, 0), (300, 400, 100, 50))
+
+    myfont = pygame.font.SysFont("freesansbold.ttf", 30)
+    text_surf = myfont.render('Quit', False, (0, 0, 0))
+    text_rect = text_surf.get_rect(center=(350, 425))
+    screen.blit(text_surf, text_rect)
+
+
 # --- GAME LOOP ---
 while not done:
     # setting up control for the game to quit when ordered to
@@ -48,18 +65,7 @@ while not done:
     # ** GAME CODE GOES HERE **
     # *************************
 
-    mouse  = pygame.mouse.get_pos()
-    click = pygame.mouse.get_pressed()
-    if 300+100 > mouse[0] > 300 and 400+50 > mouse[1] >400:
-        pygame.draw.rect(screen,(0,255,0),(300,400,100,50))
-        if click[0] == 1 : done = True
-    else:
-        pygame.draw.rect(screen,(0,200,0),(300,400,100,50))
 
-    myfont = pygame.font.SysFont("freesansbold.ttf", 30)
-    textSurf = myfont.render('Quit',False, (0,0,0))
-    textRect = textSurf.get_rect(center=(350,425))
-    screen.blit(textSurf, textRect)
 
     pygame.display.update()
     # *************************
